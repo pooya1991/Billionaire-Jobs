@@ -26,3 +26,12 @@ for(i in 377:n) {
 
 invalid_ids <- c(37, 134, 146, 175, 182, 205, 213, 216, 274, 276, 284, 303, 312, 313, 316, 320, 349, 366, 376)
 invalid_stochs <- stocknames[invalid_ids,]
+
+dir <- "data/tickers"
+a <- list.files(dir)
+b <- paste(dir, a, sep = "/")
+n <- length(b)
+for (i in 1:n) {
+  load(b[i])
+  colnames(data) <- c("Open", "High", "Low", "Close", "Volume")
+}
